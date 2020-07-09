@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: CurvedNavigationBar(
         color: Colors.black,
         backgroundColor: Colors.deepOrange,
-        buttonBackgroundColor: Colors.white,
+        buttonBackgroundColor: Colors.black,
         height: 47,
         items: <Widget>[
           Icon(

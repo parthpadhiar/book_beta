@@ -74,7 +74,7 @@ class _RequestPageState extends State<RequestPage> {
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Form(
                   key: formKey,
@@ -82,16 +82,20 @@ class _RequestPageState extends State<RequestPage> {
                     child: Flex(
                       direction: Axis.vertical,
                       children: <Widget>[
-                        Row(
+                        Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             SizedBox(
-                                width: 50,
-                                height: 50,
-                                child: Image.asset('assets/images/book2.jpg')),
-                            Text("Request your favorite")
+                                width: 100,
+                                height: 100,
+                                child: Image.asset('assets/images/book5.png')),
+                            Text(
+                              "Request your favorite",
+                              style: TextStyle(fontSize: 30),
+                            )
                           ],
                         ),
+                        Padding(padding: EdgeInsets.only(bottom: 50)),
                         ListTile(
                           title: TextFormField(
                             initialValue: "",
@@ -137,11 +141,11 @@ class _RequestPageState extends State<RequestPage> {
                         ListTile(
                           title: TextFormField(
                             validator: (value) => value == "" ? value : null,
-                            onSaved: (value) => item.autherName = value,
+                            onSaved: (value) => item.authorName = value,
                             initialValue: "",
                             decoration: InputDecoration(
-                                hintText: 'Enter Authers name',
-                                labelText: 'Auther Name',
+                                hintText: 'Enter Authors name',
+                                labelText: 'Author Name',
                                 labelStyle: TextStyle(color: Colors.black),
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
@@ -187,20 +191,20 @@ class Item {
   String key;
   String userName;
   String bookTitle;
-  String autherName;
+  String authorName;
 
-  Item(this.userName, this.bookTitle, this.autherName);
+  Item(this.userName, this.bookTitle, this.authorName);
 
   Item.fromSnapshot(DataSnapshot snapshot)
       : key = snapshot.key,
         userName = snapshot.value["userName"],
         bookTitle = snapshot.value["bookTitle"],
-        autherName = snapshot.value["autherName"];
+        authorName = snapshot.value["authorName"];
   toJson() {
     return {
       "userName": userName,
       "bookTitle": bookTitle,
-      "autherName": autherName,
+      "authorName": authorName,
     };
   }
 }
